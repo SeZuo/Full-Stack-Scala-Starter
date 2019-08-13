@@ -30,3 +30,7 @@ shared/.jvm
 .cache
 .target
 bin/
+
+# ensime
+.ensime
+.ensime_cache/

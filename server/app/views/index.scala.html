@@ -1,8 +1,19 @@
+@import play.api.Logger
+
 @(message: String)
 
 @main("Play with Scala.js") {
-  @scalajs.html.scripts("client",
-    routes.Assets.versioned(_).toString,
-    name => getClass.getResource(s"/public/$name") != null)
-
+  @scalajs.html.scripts(
+    "client",
+	 name => {
+	   val route = routes.Assets.versioned(name).toString
+		Logger.debug(route)
+		route
+	},
+	 name => {
+		val exists = Option(getClass.getResource(s"/public/$name")).isDefined
+	   Logger.debug(s"$name: $exists")
+		exists
+    }
+  )
 }
