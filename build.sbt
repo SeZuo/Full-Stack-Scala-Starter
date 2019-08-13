@@ -1,4 +1,4 @@
-lazy val scalaV = "2.12.2"
+lazy val scalaV = "2.12.8"
 
 lazy val server = (project in file("server")).settings(
   scalaVersion := scalaV,
@@ -8,7 +8,7 @@ lazy val server = (project in file("server")).settings(
   // triggers scalaJSPipeline when using compile or continuous compilation
   compile in Compile <<= (compile in Compile) dependsOn scalaJSPipeline,
   libraryDependencies ++= Seq(
-    "com.vmunier" %% "scalajs-scripts" % "1.1.1",
+    "com.vmunier" %% "scalajs-scripts" % "1.1.3",
     guice,
     filters,
     specs2 % Test
@@ -25,10 +25,10 @@ lazy val client = (project in file("client")).settings(
   persistLauncher in Test := false,
   addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full),
   libraryDependencies ++= Seq(
-    "org.scala-js" %%% "scalajs-dom" % "0.9.1",
-    "org.scala-lang.modules" %% "scala-xml" % "1.0.6",
-    "com.thoughtworks.binding" %%% "dom" % "11.0.0-M4",
-    "com.thoughtworks.binding" %%% "futurebinding" % "11.0.0-M4",
+    "org.scala-js" %%% "scalajs-dom" % "0.9.2",
+    "org.scala-lang.modules" %% "scala-xml" % "1.2.0",
+    "com.thoughtworks.binding" %%% "dom" % "11.6.0",
+    "com.thoughtworks.binding" %%% "futurebinding" % "11.6.0",
     "fr.hmil" %%% "roshttp" % "2.0.2"
   )
 ).enablePlugins(ScalaJSPlugin, ScalaJSWeb).

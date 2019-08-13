@@ -36,7 +36,8 @@ object ScalaJSExample extends js.JSApp {
       <button onclick={event: Event => countRequest(data) }>
         Boop
       </button>
-      From Play: The server has been booped { data.bind } times. Shared Message: {shared.SharedMessages.itWorks}.
+      <p>From Play: The server has been booped { data.bind } times.</p>
+      <p>Shared Message: {shared.SharedMessages.itWorks}.</p>
     </div>
   }
 
