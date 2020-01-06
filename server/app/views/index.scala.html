@@ -3,17 +3,19 @@
 @(message: String)
 
 @main("Play with Scala.js") {
-  @scalajs.html.scripts(
-    "client",
-	 name => {
-	   val route = routes.Assets.versioned(name).toString
-		Logger.debug(route)
-		route
-	},
-	 name => {
-		val exists = Option(getClass.getResource(s"/public/$name")).isDefined
-	   Logger.debug(s"$name: $exists")
-		exists
-    }
-  )
+  @defining(Logger(this.getClass())) { logger =>
+	@scalajs.html.scripts(
+		"client",
+		name => {
+			val route = routes.Assets.versioned(name).toString
+			logger.debug(route)
+			route
+		},
+		name => {
+			val exists = Option(getClass.getResource(s"/public/$name")).isDefined
+			logger.debug(s"$name: $exists")
+			exists
+		}
+	)
+  }
 }

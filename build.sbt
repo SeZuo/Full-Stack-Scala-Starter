@@ -1,4 +1,4 @@
-lazy val scalaV = "2.12.8"
+lazy val scalaV = "2.12.10"
 
 scalaVersion in ThisBuild := scalaV
 ensimeScalaVersion in ThisBuild := scalaV
@@ -11,7 +11,7 @@ lazy val server = (project in file("server")).settings(
   // triggers scalaJSPipeline when using compile or continuous compilation
   compile in Compile := ((compile in Compile) dependsOn scalaJSPipeline).value,
   libraryDependencies ++= Seq(
-    "com.vmunier" %% "scalajs-scripts" % "1.1.3",
+    "com.vmunier" %% "scalajs-scripts" % "1.1.4",
     guice,
     filters,
     specs2 % Test
